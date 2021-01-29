@@ -42,7 +42,7 @@ def run_vsearch(maping_fasta, reads_fasta, cluster_id=0.75, minseq_length=5, tem
                       "--db", maping_fasta, "--id", str(cluster_id),
                       "--minseqlength", str(minseq_length),
                       "--userfield", out_info,
-                      "--strand", "plus",
+                      "--strand", "both",
                       "--threads", str(threads),
                       "--userout", fastpath]
         p0 = subprocess.run(parameters, stderr=subprocess.PIPE)
@@ -51,18 +51,16 @@ def run_vsearch(maping_fasta, reads_fasta, cluster_id=0.75, minseq_length=5, tem
         print(str(e))
 
 
-    
-def parse_vsearch(file, strand="+"):
-    """Parse vsearch file returning a dictionary of top hits for each primer and seq.
 
+def parse_vsearch(file):
+    """Parse vsearch file returning a dictionary of top hits for each primer and seqself.
     Args:
         input (str): file: the input file to be parsed
-
     Returns:
         (dict): A dictionary, e.g. {seq1: {primer1: {spos,epos,pmatch,tcov, gaps},...},...}
     """
-    sdict = {}
     with open(file, 'r') as f:
+        sdict = {}
         for line in f:
             ll = line.strip().split()
             qname = ll[0]
@@ -74,10 +72,10 @@ def parse_vsearch(file, strand="+"):
             epos = int(ll[13])
             qstrand = ll[14]
             tstrand = ll[15]
-            if qstrand == strand and tcov >= 50:
+            td = {'spos': spos, 'epos': epos, 'pmatch': pmatch, 'tcov': tcov,
+                  'gaps': gaps, 'qstrand': qstrand, 'tstrand': tstrand}
+            if tcov >= 50:
                 if gaps < 5:
-                    td = {'spos': spos, 'epos': epos, 'pmatch': pmatch, 'tcov': tcov,
-                          'gaps': gaps, 'qstrand': qstrand, 'tstrand': tstrand}
                     if qname in sdict:
                         if tname in sdict[qname]:
                             if sdict[qname][tname]['pmatch'] < pmatch:
@@ -88,6 +86,9 @@ def parse_vsearch(file, strand="+"):
                         sdict[qname] = {}
                         sdict[qname][tname] = td
         return sdict
+
+
+
 
 # filter the parsed vserach file based on the number of matching barcode type
 def filter_vsearch(sdict, nhits):
