@@ -3,7 +3,7 @@
 """
 Created on Tue Nov 17 12:26:50 2020
 
-@author: admin
+@author: Ravin Poudel
 KEIO: A python module to process illumina reads for keio-collection type project.
 
 

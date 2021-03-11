@@ -3,7 +3,7 @@
 """
 Created on Tue Nov 17 12:31:42 2020
 
-@author: admin
+@author: Ravin Poudel
 """
 import os
 import sys

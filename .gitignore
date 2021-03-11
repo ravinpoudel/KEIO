@@ -18,3 +18,5 @@ testing.py
 /dist
 
 *.log
+*.pyc
+/*.pyc
