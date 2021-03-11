@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.1" />
+<title>keio.core API documentation</title>
+<meta name="description" content="Created on Tue Nov 17 12:26:50 2020 …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>keio.core</code></h1>
+</header>
+<section id="section-intro">
+<p>Created on Tue Nov 17 12:26:50 2020</p>
+<p>@author: admin
+KEIO: A python module to process illumina reads for keio-collection type project.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Created on Tue Nov 17 12:26:50 2020
+
+@author: admin
+KEIO: A python module to process illumina reads for keio-collection type project.
+
+
+&#34;&#34;&#34;
+
+import os
+import sys
+import textdistance
+import logging
+import hashlib
+import subprocess
+import Bio
+import gzip
+import pickle
+import nmslib
+import pandas as pd
+import numpy as np
+from Bio import SeqIO
+from Bio.Seq import Seq
+from collections import defaultdict
+from Bio.SeqRecord import SeqRecord
+
+logger = logging.getLogger(&#39;keio.core&#39;)
+
+
+def is_gzip(filename):
+    try:
+        with open(filename, &#34;rb&#34;) as f:
+            logging.info(&#34;check if %s is gzipped&#34; % filename)
+            return f.read(2) == b&#39;\x1f\x8b&#39;
+    except IOError as e:
+        logging.error(&#34;Could not open the file %s to determine if it was gzipped&#34; % filename)
+        raise e
+
+
+def fq2fa(filelist, tempdir=None):
+    &#34;&#34;&#34;Saves a Fasta and from 1 or more fastq files (may be gzipped)
+
+    Args:
+        filelist (str): Genbank file to process
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    try:
+        fastpath = os.path.join(tempdir, &#34;forward.fasta&#34;)
+        with open(fastpath, &#34;w&#34;) as f1:
+            for file in filelist:
+                if is_gzip(file):
+                    with gzip.open(file, &#39;rt&#39;) as f:
+                        records = SeqIO.parse(f, &#34;fastq&#34;)
+                        SeqIO.write(records, f1, &#34;fasta&#34;)
+                else:
+                    with open(file, &#39;r&#39;) as f:
+                        records = (SeqIO.parse(f, &#34;fastq&#34;))
+                        SeqIO.write(records, f1, &#34;fasta&#34;)
+        return fastpath
+    except Exception as e:
+        print(&#34;An error occurred in input fastq file %s&#34; % file)
+        raise e
+
+                    
+def run_vsearch(mapping_fasta, reads_fasta, cluster_id=0.75, minseq_length=5, tempdir=None, threads=2):
+    &#34;&#34;&#34; Returns mapping information
+    Args:
+            input1(str): barcodefile: fasta
+            input2(str): reads: fastafile
+            input3 (int): cluster_id
+    Returns:
+        output: file: vsearch output containing alignment positon and quality
+    &#34;&#34;&#34;
+    try:
+        out_info = &#39;query+target+ql+tl+id+tcov+qcov+ids+gaps+qrow+trow+id4+qilo+qihi+qstrand+tstrand&#39;
+        outputfile  = os.path.basename(mapping_fasta) + &#34;__output.txt&#34;
+        fastpath = os.path.join(tempdir, outputfile)
+        # print(reads_fasta)
+        # print(mapping_fasta)
+        # print(outputfile)
+        # print(fastpath)
+        parameters = [&#34;vsearch&#34;, &#34;--usearch_global&#34;, str(reads_fasta),
+                      &#34;--db&#34;, str(mapping_fasta), &#34;--id&#34;, str(cluster_id),
+                      &#34;--minseqlength&#34;, str(minseq_length),
+                      &#34;--userfield&#34;, out_info,
+                      &#34;--strand&#34;, &#34;both&#34;,
+                      &#34;--threads&#34;, str(threads),
+                      &#34;--userout&#34;, str(fastpath)]
+        p0 = subprocess.run(parameters, stderr=subprocess.PIPE)
+        print(p0.stderr.decode(&#39;utf-8&#39;))
+    except subprocess.CalledProcessError as e:
+        print(str(e))
+
+
+def parse_vsearch(file):
+    &#34;&#34;&#34;Parse vsearch file returning a dictionary of top hits for each primer and seqself.
+    Args:
+        input (str): file: the input file to be parsed
+    Returns:
+        (dict): A dictionary, e.g. {seq1: {primer1: {spos,epos,pmatch,tcov, gaps},...},...}
+    &#34;&#34;&#34;
+    with open(file, &#39;r&#39;) as f:
+        sdict = {}
+        for line in f:
+            ll = line.strip().split()
+            qname = ll[0]
+            tname = ll[1]
+            pmatch = float(ll[4])
+            tcov = float(ll[5])
+            gaps = int(ll[8])
+            spos = int(ll[12])
+            epos = int(ll[13])
+            qstrand = ll[14]
+            tstrand = ll[15]
+            td = {&#39;spos&#39;: spos, &#39;epos&#39;: epos, &#39;pmatch&#39;: pmatch, &#39;tcov&#39;: tcov,
+                  &#39;gaps&#39;: gaps, &#39;qstrand&#39;: qstrand, &#39;tstrand&#39;: tstrand}
+            if tcov &gt;= 50:
+                if gaps &lt; 5:
+                    if qname in sdict:
+                        if tname in sdict[qname]:
+                            if sdict[qname][tname][&#39;pmatch&#39;] &lt; pmatch:
+                                sdict[qname][tname] = td
+                        else:
+                            sdict[qname][tname] = td
+                    else:
+                        sdict[qname] = {}
+                        sdict[qname][tname] = td
+        return sdict
+
+
+
+
+# filter the parsed vserach file based on the number of matching barcode type
+def filter_vsearch(sdict, nhits):
+    &#34;&#34;&#34;Filter the parsed vserach file based on the number of matching barcode type&#34;&#34;&#34;
+    outdict = {}
+    for items in sdict.items():
+        if len(items[1]) &gt;= nhits:
+            outdict[items[0]] = items[1]
+    return outdict
+
+# Now create a dictionary with start and end position for each barcode type
+
+
+def get_randombarcode(keio_fasta, filter_vsearch_dict):
+    &#34;&#34;&#34;Create a dictionary with start and end position for each barcode type&#34;&#34;&#34;
+    out_dict={}
+    for seq_record in SeqIO.parse(keio_fasta, &#34;fasta&#34;):
+        if seq_record.id in filter_vsearch_dict.keys():
+            sequence = str(seq_record.seq)
+            listkey = list(filter_vsearch_dict[seq_record.id].keys())
+            a = filter_vsearch_dict[seq_record.id][listkey[0]][&#39;spos&#39;] # start position for Ffasta
+            b = filter_vsearch_dict[seq_record.id][listkey[0]][&#39;epos&#39;] # start position for Ffasta
+            c = filter_vsearch_dict[seq_record.id][listkey[1]][&#39;spos&#39;]
+            d = filter_vsearch_dict[seq_record.id][listkey[1]][&#39;epos&#39;]
+            up_constant = sorted(listkey)[1]
+            down_constant = sorted(listkey)[0]
+            ll = sorted([a, b, c, d])
+            sp = ll[1]
+            ep = ll[2]
+            seq = sequence[sp:ep-1]
+            if len(seq) &gt;=18 and len(seq) &lt;=22:
+                out_dict[seq_record.id]= {&#34;cutseq&#34;:seq, &#34;up_constant&#34;:up_constant,&#34;down_constant&#34;:down_constant}
+    return out_dict
+                
+
+# Just get a fasta information for random barcode.
+def randombarcode_fasta(get_randombarcode_dict):
+    &#34;&#34;&#34; Retrive fasta from dictionary &#34;&#34;&#34;
+    barhash = []
+    for k in get_randombarcode_dict.keys():
+        rb = get_randombarcode_dict[k][&#39;cutseq&#39;]
+        record = SeqRecord(Seq(rb), id=k ,description=&#34;&#34;, name=&#34;&#34;)
+        barhash.append(record)
+    SeqIO.write(barhash, &#34;rb.fasta&#34;, &#34;fasta&#34;)
+
+
+def cluster_db(rbfasta, threads=1, cluster_id=0.9, min_seqlength=10):
+    &#34;&#34;&#34;Runs Vsearch clustering to create a FASTA file of non-redundant sequences. Selects the most abundant sequence as the centroid
+    Args:
+        threads (int or str):the number of processor threads to use
+
+    Returns:
+            (file): uc file with cluster information
+            (file): a centroid fasta file
+    &#34;&#34;&#34;
+    try:
+        centroid_fasta = rbfasta.split(&#34;.&#34;)[0] + &#34;_centroid_representative_fasta&#34;
+        uc_file = rbfasta.split(&#34;.&#34;)[0] + &#34;.uc&#34;
+        parameters0 = [&#34;vsearch&#34;,
+                      &#34;--cluster_size&#34;, rbfasta,
+                      &#34;--id&#34;, str(cluster_id),
+                      &#34;--sizeout&#34;, &#34;--sizeorder&#34;,&#34;--relabel&#34;,
+                      &#34;Cluster_&#34;,
+                      &#34;--centroids&#34;, centroid_fasta,
+                      &#34;--uc&#34;, uc_file,
+                      &#34;--strand&#34;, &#34;both&#34;,
+                      &#34;--minseqlength&#34;, str(min_seqlength),
+                      &#34;--threads&#34;, str(threads)]
+        p0 = subprocess.run(parameters0, stderr=subprocess.PIPE)
+        print(p0.stderr.decode(&#39;utf-8&#39;))
+    except subprocess.CalledProcessError as e:
+        print(str(e))
+    except FileNotFoundError as f:
+        print(str(f))
+
+
+def mapR2clusterdb(fastafile, centroid_representative_fasta,cluster_id=0.9, min_seqlength=20):
+    &#34;&#34;&#34;Map reads and cluster centroid information&#34;&#34;&#34;
+    try:
+        uc_map = fastafile.split(&#34;.&#34;)[0] + &#34;.cluster_table_mapping.uc&#34;
+        readfile = fastafile
+        centroidfile = centroid_representative_fasta
+        parameters1 = [&#34;vsearch&#34;,
+                      &#34;--usearch_global&#34;, readfile,
+                      &#34;--db&#34;, centroidfile,
+                      &#34;--strand&#34;, &#34;plus&#34;,
+                      &#34;--id&#34;, str(cluster_id),
+                      &#34;--uc&#34;, uc_map,
+                      &#34;--strand&#34;, &#34;both&#34;,
+                      &#34;--minseqlength&#34;, str(min_seqlength)]
+        p1 = subprocess.run(parameters1, stderr=subprocess.PIPE)
+        print(p1.stderr.decode(&#39;utf-8&#39;))
+    except subprocess.CalledProcessError as e:
+        print(str(e))
+    except FileNotFoundError as f:
+        print(str(f))
+
+# use if NMSLIB
+# index the reference list
+def create_index(strings):
+    &#34;&#34;&#34;Create a nmslib index&#34;&#34;&#34;
+    index = nmslib.init(space=&#39;leven&#39;,
+                            dtype=nmslib.DistType.INT,
+                            data_type=nmslib.DataType.OBJECT_AS_STRING,
+                            method=&#39;small_world_rand&#39;)
+    index.addDataPointBatch(strings)
+    index.createIndex(print_progress=True)
+    return index
+
+# get knn in bactch mode for all query
+def get_knns(index, vecs):
+    return zip(*index.knnQueryBatch(vecs, k=1, num_threads=4)) # zip creates a tupple with first element as knn location and second element as distance
+
+# Display the actual strings_KNN
+def display_knn(ref_barcode_list, knn_ids_array):
+    &#34;&#34;&#34;Display the KNN neighbours&#34;&#34;&#34;
+    #print(&#34;Query string:\n&#34;, query,&#34;\n&#34;)
+    print (&#34;Pritning nearest neighbours:\n&#34;)
+    for v in knn_ids_array.tolist():
+        print(ref_barcode_list[v])
+
+
+### filter based on distance
+def filter_knn_dist(qdict, mindist):
+    &#34;&#34;&#34;Filter KNN based on distance&#34;&#34;&#34;
+    outdict = {}
+    for items in qdict.items():
+         if items[1][&#39;distance&#39;] &lt;= mindist:
+            outdict[items[0]] = items[1]
+    return outdict
+
+def head_dict(dict, n):
+    &#34;&#34;&#34;Print first &#39;n ~ size&#39; number of entries in a dictionary.
+
+    Args:
+        input (str): dict: the input dictionary to be parsed
+
+        input (int): n: interger specifying the size of return dictionary
+
+    Returns:
+        print n entries for dictionary
+    &#34;&#34;&#34;
+    k = 0
+    for items in dict.items():
+        if k &lt; n:
+            print(&#34;\n&#34;, items)
+            k += 1</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="keio.core.cluster_db"><code class="name flex">
+<span>def <span class="ident">cluster_db</span></span>(<span>rbfasta, threads=1, cluster_id=0.9, min_seqlength=10)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs Vsearch clustering to create a FASTA file of non-redundant sequences. Selects the most abundant sequence as the centroid</p>
+<h2 id="args">Args</h2>
+<p>threads (int or str):the number of processor threads to use</p>
+<h2 id="returns">Returns</h2>
+<p>(file): uc file with cluster information
+(file): a centroid fasta file</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cluster_db(rbfasta, threads=1, cluster_id=0.9, min_seqlength=10):
+    &#34;&#34;&#34;Runs Vsearch clustering to create a FASTA file of non-redundant sequences. Selects the most abundant sequence as the centroid
+    Args:
+        threads (int or str):the number of processor threads to use
+
+    Returns:
+            (file): uc file with cluster information
+            (file): a centroid fasta file
+    &#34;&#34;&#34;
+    try:
+        centroid_fasta = rbfasta.split(&#34;.&#34;)[0] + &#34;_centroid_representative_fasta&#34;
+        uc_file = rbfasta.split(&#34;.&#34;)[0] + &#34;.uc&#34;
+        parameters0 = [&#34;vsearch&#34;,
+                      &#34;--cluster_size&#34;, rbfasta,
+                      &#34;--id&#34;, str(cluster_id),
+                      &#34;--sizeout&#34;, &#34;--sizeorder&#34;,&#34;--relabel&#34;,
+                      &#34;Cluster_&#34;,
+                      &#34;--centroids&#34;, centroid_fasta,
+                      &#34;--uc&#34;, uc_file,
+                      &#34;--strand&#34;, &#34;both&#34;,
+                      &#34;--minseqlength&#34;, str(min_seqlength),
+                      &#34;--threads&#34;, str(threads)]
+        p0 = subprocess.run(parameters0, stderr=subprocess.PIPE)
+        print(p0.stderr.decode(&#39;utf-8&#39;))
+    except subprocess.CalledProcessError as e:
+        print(str(e))
+    except FileNotFoundError as f:
+        print(str(f))</code></pre>
+</details>
+</dd>
+<dt id="keio.core.create_index"><code class="name flex">
+<span>def <span class="ident">create_index</span></span>(<span>strings)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a nmslib index</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_index(strings):
+    &#34;&#34;&#34;Create a nmslib index&#34;&#34;&#34;
+    index = nmslib.init(space=&#39;leven&#39;,
+                            dtype=nmslib.DistType.INT,
+                            data_type=nmslib.DataType.OBJECT_AS_STRING,
+                            method=&#39;small_world_rand&#39;)
+    index.addDataPointBatch(strings)
+    index.createIndex(print_progress=True)
+    return index</code></pre>
+</details>
+</dd>
+<dt id="keio.core.display_knn"><code class="name flex">
+<span>def <span class="ident">display_knn</span></span>(<span>ref_barcode_list, knn_ids_array)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Display the KNN neighbours</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def display_knn(ref_barcode_list, knn_ids_array):
+    &#34;&#34;&#34;Display the KNN neighbours&#34;&#34;&#34;
+    #print(&#34;Query string:\n&#34;, query,&#34;\n&#34;)
+    print (&#34;Pritning nearest neighbours:\n&#34;)
+    for v in knn_ids_array.tolist():
+        print(ref_barcode_list[v])</code></pre>
+</details>
+</dd>
+<dt id="keio.core.filter_knn_dist"><code class="name flex">
+<span>def <span class="ident">filter_knn_dist</span></span>(<span>qdict, mindist)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filter KNN based on distance</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filter_knn_dist(qdict, mindist):
+    &#34;&#34;&#34;Filter KNN based on distance&#34;&#34;&#34;
+    outdict = {}
+    for items in qdict.items():
+         if items[1][&#39;distance&#39;] &lt;= mindist:
+            outdict[items[0]] = items[1]
+    return outdict</code></pre>
+</details>
+</dd>
+<dt id="keio.core.filter_vsearch"><code class="name flex">
+<span>def <span class="ident">filter_vsearch</span></span>(<span>sdict, nhits)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Filter the parsed vserach file based on the number of matching barcode type</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filter_vsearch(sdict, nhits):
+    &#34;&#34;&#34;Filter the parsed vserach file based on the number of matching barcode type&#34;&#34;&#34;
+    outdict = {}
+    for items in sdict.items():
+        if len(items[1]) &gt;= nhits:
+            outdict[items[0]] = items[1]
+    return outdict</code></pre>
+</details>
+</dd>
+<dt id="keio.core.fq2fa"><code class="name flex">
+<span>def <span class="ident">fq2fa</span></span>(<span>filelist, tempdir=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Saves a Fasta and from 1 or more fastq files (may be gzipped)</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filelist</code></strong> :&ensp;<code>str</code></dt>
+<dd>Genbank file to process</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>None</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fq2fa(filelist, tempdir=None):
+    &#34;&#34;&#34;Saves a Fasta and from 1 or more fastq files (may be gzipped)
+
+    Args:
+        filelist (str): Genbank file to process
+
+    Returns:
+        None
+    &#34;&#34;&#34;
+    try:
+        fastpath = os.path.join(tempdir, &#34;forward.fasta&#34;)
+        with open(fastpath, &#34;w&#34;) as f1:
+            for file in filelist:
+                if is_gzip(file):
+                    with gzip.open(file, &#39;rt&#39;) as f:
+                        records = SeqIO.parse(f, &#34;fastq&#34;)
+                        SeqIO.write(records, f1, &#34;fasta&#34;)
+                else:
+                    with open(file, &#39;r&#39;) as f:
+                        records = (SeqIO.parse(f, &#34;fastq&#34;))
+                        SeqIO.write(records, f1, &#34;fasta&#34;)
+        return fastpath
+    except Exception as e:
+        print(&#34;An error occurred in input fastq file %s&#34; % file)
+        raise e</code></pre>
+</details>
+</dd>
+<dt id="keio.core.get_knns"><code class="name flex">
+<span>def <span class="ident">get_knns</span></span>(<span>index, vecs)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_knns(index, vecs):
+    return zip(*index.knnQueryBatch(vecs, k=1, num_threads=4)) # zip creates a tupple with first element as knn location and second element as distance</code></pre>
+</details>
+</dd>
+<dt id="keio.core.get_randombarcode"><code class="name flex">
+<span>def <span class="ident">get_randombarcode</span></span>(<span>keio_fasta, filter_vsearch_dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create a dictionary with start and end position for each barcode type</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_randombarcode(keio_fasta, filter_vsearch_dict):
+    &#34;&#34;&#34;Create a dictionary with start and end position for each barcode type&#34;&#34;&#34;
+    out_dict={}
+    for seq_record in SeqIO.parse(keio_fasta, &#34;fasta&#34;):
+        if seq_record.id in filter_vsearch_dict.keys():
+            sequence = str(seq_record.seq)
+            listkey = list(filter_vsearch_dict[seq_record.id].keys())
+            a = filter_vsearch_dict[seq_record.id][listkey[0]][&#39;spos&#39;] # start position for Ffasta
+            b = filter_vsearch_dict[seq_record.id][listkey[0]][&#39;epos&#39;] # start position for Ffasta
+            c = filter_vsearch_dict[seq_record.id][listkey[1]][&#39;spos&#39;]
+            d = filter_vsearch_dict[seq_record.id][listkey[1]][&#39;epos&#39;]
+            up_constant = sorted(listkey)[1]
+            down_constant = sorted(listkey)[0]
+            ll = sorted([a, b, c, d])
+            sp = ll[1]
+            ep = ll[2]
+            seq = sequence[sp:ep-1]
+            if len(seq) &gt;=18 and len(seq) &lt;=22:
+                out_dict[seq_record.id]= {&#34;cutseq&#34;:seq, &#34;up_constant&#34;:up_constant,&#34;down_constant&#34;:down_constant}
+    return out_dict</code></pre>
+</details>
+</dd>
+<dt id="keio.core.head_dict"><code class="name flex">
+<span>def <span class="ident">head_dict</span></span>(<span>dict, n)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Print first 'n ~ size' number of entries in a dictionary.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input</code></strong> :&ensp;<code>str</code></dt>
+<dd>dict: the input dictionary to be parsed</dd>
+<dt><strong><code>input</code></strong> :&ensp;<code>int</code></dt>
+<dd>n: interger specifying the size of return dictionary</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>print n entries for dictionary</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def head_dict(dict, n):
+    &#34;&#34;&#34;Print first &#39;n ~ size&#39; number of entries in a dictionary.
+
+    Args:
+        input (str): dict: the input dictionary to be parsed
+
+        input (int): n: interger specifying the size of return dictionary
+
+    Returns:
+        print n entries for dictionary
+    &#34;&#34;&#34;
+    k = 0
+    for items in dict.items():
+        if k &lt; n:
+            print(&#34;\n&#34;, items)
+            k += 1</code></pre>
+</details>
+</dd>
+<dt id="keio.core.is_gzip"><code class="name flex">
+<span>def <span class="ident">is_gzip</span></span>(<span>filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_gzip(filename):
+    try:
+        with open(filename, &#34;rb&#34;) as f:
+            logging.info(&#34;check if %s is gzipped&#34; % filename)
+            return f.read(2) == b&#39;\x1f\x8b&#39;
+    except IOError as e:
+        logging.error(&#34;Could not open the file %s to determine if it was gzipped&#34; % filename)
+        raise e</code></pre>
+</details>
+</dd>
+<dt id="keio.core.mapR2clusterdb"><code class="name flex">
+<span>def <span class="ident">mapR2clusterdb</span></span>(<span>fastafile, centroid_representative_fasta, cluster_id=0.9, min_seqlength=20)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Map reads and cluster centroid information</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def mapR2clusterdb(fastafile, centroid_representative_fasta,cluster_id=0.9, min_seqlength=20):
+    &#34;&#34;&#34;Map reads and cluster centroid information&#34;&#34;&#34;
+    try:
+        uc_map = fastafile.split(&#34;.&#34;)[0] + &#34;.cluster_table_mapping.uc&#34;
+        readfile = fastafile
+        centroidfile = centroid_representative_fasta
+        parameters1 = [&#34;vsearch&#34;,
+                      &#34;--usearch_global&#34;, readfile,
+                      &#34;--db&#34;, centroidfile,
+                      &#34;--strand&#34;, &#34;plus&#34;,
+                      &#34;--id&#34;, str(cluster_id),
+                      &#34;--uc&#34;, uc_map,
+                      &#34;--strand&#34;, &#34;both&#34;,
+                      &#34;--minseqlength&#34;, str(min_seqlength)]
+        p1 = subprocess.run(parameters1, stderr=subprocess.PIPE)
+        print(p1.stderr.decode(&#39;utf-8&#39;))
+    except subprocess.CalledProcessError as e:
+        print(str(e))
+    except FileNotFoundError as f:
+        print(str(f))</code></pre>
+</details>
+</dd>
+<dt id="keio.core.parse_vsearch"><code class="name flex">
+<span>def <span class="ident">parse_vsearch</span></span>(<span>file)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Parse vsearch file returning a dictionary of top hits for each primer and seqself.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input</code></strong> :&ensp;<code>str</code></dt>
+<dd>file: the input file to be parsed</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>(dict): A dictionary, e.g. {seq1: {primer1: {spos,epos,pmatch,tcov, gaps},&hellip;},&hellip;}</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def parse_vsearch(file):
+    &#34;&#34;&#34;Parse vsearch file returning a dictionary of top hits for each primer and seqself.
+    Args:
+        input (str): file: the input file to be parsed
+    Returns:
+        (dict): A dictionary, e.g. {seq1: {primer1: {spos,epos,pmatch,tcov, gaps},...},...}
+    &#34;&#34;&#34;
+    with open(file, &#39;r&#39;) as f:
+        sdict = {}
+        for line in f:
+            ll = line.strip().split()
+            qname = ll[0]
+            tname = ll[1]
+            pmatch = float(ll[4])
+            tcov = float(ll[5])
+            gaps = int(ll[8])
+            spos = int(ll[12])
+            epos = int(ll[13])
+            qstrand = ll[14]
+            tstrand = ll[15]
+            td = {&#39;spos&#39;: spos, &#39;epos&#39;: epos, &#39;pmatch&#39;: pmatch, &#39;tcov&#39;: tcov,
+                  &#39;gaps&#39;: gaps, &#39;qstrand&#39;: qstrand, &#39;tstrand&#39;: tstrand}
+            if tcov &gt;= 50:
+                if gaps &lt; 5:
+                    if qname in sdict:
+                        if tname in sdict[qname]:
+                            if sdict[qname][tname][&#39;pmatch&#39;] &lt; pmatch:
+                                sdict[qname][tname] = td
+                        else:
+                            sdict[qname][tname] = td
+                    else:
+                        sdict[qname] = {}
+                        sdict[qname][tname] = td
+        return sdict</code></pre>
+</details>
+</dd>
+<dt id="keio.core.randombarcode_fasta"><code class="name flex">
+<span>def <span class="ident">randombarcode_fasta</span></span>(<span>get_randombarcode_dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrive fasta from dictionary</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def randombarcode_fasta(get_randombarcode_dict):
+    &#34;&#34;&#34; Retrive fasta from dictionary &#34;&#34;&#34;
+    barhash = []
+    for k in get_randombarcode_dict.keys():
+        rb = get_randombarcode_dict[k][&#39;cutseq&#39;]
+        record = SeqRecord(Seq(rb), id=k ,description=&#34;&#34;, name=&#34;&#34;)
+        barhash.append(record)
+    SeqIO.write(barhash, &#34;rb.fasta&#34;, &#34;fasta&#34;)</code></pre>
+</details>
+</dd>
+<dt id="keio.core.run_vsearch"><code class="name flex">
+<span>def <span class="ident">run_vsearch</span></span>(<span>mapping_fasta, reads_fasta, cluster_id=0.75, minseq_length=5, tempdir=None, threads=2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns mapping information</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt>input1(str): barcodefile: fasta</dt>
+<dt>input2(str): reads: fastafile</dt>
+<dt><strong><code>input3</code></strong> :&ensp;<code>int</code></dt>
+<dd>cluster_id</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>output</code></dt>
+<dd>file: vsearch output containing alignment positon and quality</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_vsearch(mapping_fasta, reads_fasta, cluster_id=0.75, minseq_length=5, tempdir=None, threads=2):
+    &#34;&#34;&#34; Returns mapping information
+    Args:
+            input1(str): barcodefile: fasta
+            input2(str): reads: fastafile
+            input3 (int): cluster_id
+    Returns:
+        output: file: vsearch output containing alignment positon and quality
+    &#34;&#34;&#34;
+    try:
+        out_info = &#39;query+target+ql+tl+id+tcov+qcov+ids+gaps+qrow+trow+id4+qilo+qihi+qstrand+tstrand&#39;
+        outputfile  = os.path.basename(mapping_fasta) + &#34;__output.txt&#34;
+        fastpath = os.path.join(tempdir, outputfile)
+        # print(reads_fasta)
+        # print(mapping_fasta)
+        # print(outputfile)
+        # print(fastpath)
+        parameters = [&#34;vsearch&#34;, &#34;--usearch_global&#34;, str(reads_fasta),
+                      &#34;--db&#34;, str(mapping_fasta), &#34;--id&#34;, str(cluster_id),
+                      &#34;--minseqlength&#34;, str(minseq_length),
+                      &#34;--userfield&#34;, out_info,
+                      &#34;--strand&#34;, &#34;both&#34;,
+                      &#34;--threads&#34;, str(threads),
+                      &#34;--userout&#34;, str(fastpath)]
+        p0 = subprocess.run(parameters, stderr=subprocess.PIPE)
+        print(p0.stderr.decode(&#39;utf-8&#39;))
+    except subprocess.CalledProcessError as e:
+        print(str(e))</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="keio" href="index.html">keio</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="keio.core.cluster_db" href="#keio.core.cluster_db">cluster_db</a></code></li>
+<li><code><a title="keio.core.create_index" href="#keio.core.create_index">create_index</a></code></li>
+<li><code><a title="keio.core.display_knn" href="#keio.core.display_knn">display_knn</a></code></li>
+<li><code><a title="keio.core.filter_knn_dist" href="#keio.core.filter_knn_dist">filter_knn_dist</a></code></li>
+<li><code><a title="keio.core.filter_vsearch" href="#keio.core.filter_vsearch">filter_vsearch</a></code></li>
+<li><code><a title="keio.core.fq2fa" href="#keio.core.fq2fa">fq2fa</a></code></li>
+<li><code><a title="keio.core.get_knns" href="#keio.core.get_knns">get_knns</a></code></li>
+<li><code><a title="keio.core.get_randombarcode" href="#keio.core.get_randombarcode">get_randombarcode</a></code></li>
+<li><code><a title="keio.core.head_dict" href="#keio.core.head_dict">head_dict</a></code></li>
+<li><code><a title="keio.core.is_gzip" href="#keio.core.is_gzip">is_gzip</a></code></li>
+<li><code><a title="keio.core.mapR2clusterdb" href="#keio.core.mapR2clusterdb">mapR2clusterdb</a></code></li>
+<li><code><a title="keio.core.parse_vsearch" href="#keio.core.parse_vsearch">parse_vsearch</a></code></li>
+<li><code><a title="keio.core.randombarcode_fasta" href="#keio.core.randombarcode_fasta">randombarcode_fasta</a></code></li>
+<li><code><a title="keio.core.run_vsearch" href="#keio.core.run_vsearch">run_vsearch</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.1</a>.</p>
+</footer>
+</body>
+</html>
