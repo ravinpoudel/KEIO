@@ -65,6 +65,8 @@ keio -f test/test_data/sample.fq.gz -uf test/test_data/upstream.fasta -drcf test
 
 ## API documentation
 
+[Available Here](https://ravinpoudel.github.io/KEIO/)
+
 
 ## License information
 
