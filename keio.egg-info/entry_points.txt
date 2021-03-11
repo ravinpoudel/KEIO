@@ -1,0 +1,3 @@
+[console_scripts]
+keio = keio.cli:main
+

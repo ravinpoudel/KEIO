@@ -1,0 +1,11 @@
+03-11 15:38 root         INFO     Temp directory is: /var/folders/ct/2nl65wtn3978tk0rq17mg2fw0000gn/T/keio__zbmcslg
+03-11 15:38 root         INFO     Writing fasta file from genbank file(s)
+03-11 15:38 root         INFO     check if test/test_data/D2101114.fq.gz is gzipped
+03-11 15:38 root         INFO     Mapping upstream barcode -- Number of threads used: 2
+03-11 15:38 root         INFO     Mapping downstream barcode -- Number of threads used: 2
+03-11 15:38 root         INFO     Combinging upstream and downstrem output at: /var/folders/ct/2nl65wtn3978tk0rq17mg2fw0000gn/T/keio__zbmcslg/PlateMappingReads_combinedfile.txt
+03-11 15:38 root         INFO     Parsing vsearch records
+03-11 15:38 root         INFO     Number of records: 64295
+03-11 15:38 root         INFO     Filtering records
+03-11 15:38 root         INFO     Number of records: 58459
+03-11 15:38 root         INFO     Writing PlateMappingReads as csv file: D2101114.csv

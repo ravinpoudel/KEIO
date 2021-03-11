@@ -38,7 +38,7 @@ import keio
 
 def myparser():
     parser = argparse.ArgumentParser(description='Mapping inline barcodes to the fasta file')
-    parser.add_argument('--fastq', '-f', nargs='+', type=str, required=True, help='input fastq file')
+    parser.add_argument('--fasta', '-f', nargs='+', type=str, required=True, help='input fasta file')
     parser.add_argument('--upstreamFasta', '-uf', type=str, required=True, help='A upstreamFasta file')
     parser.add_argument('--downstreamrcFasta', '-drcf', type=str, required=True, help='A downstreamFasta file')
     parser.add_argument('--threads', help='The number of cpu threads to use', type=int, default=2)
@@ -76,43 +76,39 @@ def _logger_setup(logfile):
         raise e
         
 def main(args=None):
-    """Run The complete Keio workflow.
+    """Run The complete GuideMaker workflow.
 
     """
     # Set up logging
     parser = myparser()
     if not args:
         args = parser.parse_args()
-    _logger_setup(args.log)
+    logfilename = os.path.splitext(args.fasta[0])[0] + ".log"
+    _logger_setup(logfilename)
     try:
 
         if args.tempdir:
             if not os.path.exists(args.tempdir):
                 logging.warning("Specified location for tempfile (%s) does not \
                                  exist, using default location." % tempdir )
-                tempdir = tempfile.mkdtemp(prefix='keio_')
+                tempdir = tempfile.mkdtemp(prefix='guidemaker_')
         else:
-            tempdir = tempfile.mkdtemp(prefix='keio_', dir=args.tempdir)
+            tempdir = tempfile.mkdtemp(prefix='guidemaker_', dir=args.tempdir)
             
         logging.info("Temp directory is: %s" % (tempdir))
-        logging.info("Writing fasta file from genbank file(s)")
-        fastapath = keio.fq2fa(args.fastq, tempdir=tempdir)
-        print(fastapath)
-
+        
         # upstream
         logging.info("Mapping upstream barcode -- Number of threads used: %d", (args.threads))
-        keio.core.run_vsearch(mapping_fasta=args.upstreamFasta, reads_fasta = fastapath, cluster_id=0.95, minseq_length=8,  threads=args.threads, tempdir=tempdir)
+        keio.core.run_vsearch(args.upstreamFasta, args.fasta[0], cluster_id=0.95, minseq_length=8, tempdir=tempdir, threads=args.threads)
         
         # downstream
         logging.info("Mapping downstream barcode -- Number of threads used: %d", (args.threads))
-        keio.run_vsearch(mapping_fasta=args.downstreamrcFasta, reads_fasta = fastapath, cluster_id=0.90, minseq_length=8, threads=args.threads, tempdir=tempdir)
+        keio.core.run_vsearch(args.downstreamrcFasta, args.fasta[0], cluster_id=0.90, minseq_length=8, tempdir=tempdir, threads=args.threads)
 
-        # NEed to move this processing to core.
-        f_list = [x for x in os.listdir(tempdir) if x.endswith(".txt")]
+
+        f_list = os.listdir(tempdir)
         
         outfilename = tempdir + '/PlateMappingReads_combinedfile.txt'
-
-        logging.info("Combinging upstream and downstrem output at: %s", (outfilename))
 
         with open(outfilename, 'w') as outfile:
             for fname in f_list:
@@ -120,7 +116,6 @@ def main(args=None):
                 with open(file) as infile:
                     for line in infile:
                         outfile.write(line)
-        ###################
         
         logging.info("Parsing vsearch records")
         datplus = keio.parse_vsearch(outfilename)
@@ -132,21 +127,20 @@ def main(args=None):
         #print(len(datplus_filter))
         #keio.head_dict(datplus_filter, 5)
 
-
-        basename = os.path.basename(str(args.fastq)) 
-        outputfile = basename.split(".")[0] + ".csv"
+        #print(args.fasta[0])
+        basename = os.path.splitext(args.fasta[0])[0] + ".csv"
         
-        PlateMapping_rbdict = keio.get_randombarcode(fastapath, datplus_filter)
+        PlateMapping_rbdict = keio.get_randombarcode(args.fasta[0], datplus_filter)
         #keio.head_dict(PlateMapping_rbdict, 5)
         
         df_PlateMapping_rbdict = pd.DataFrame.from_dict(PlateMapping_rbdict ,orient='index')
         df_PlateMapping_rbdict_ri = df_PlateMapping_rbdict.rename_axis('SeqID').reset_index()
 
-        logging.info("Writing PlateMappingReads as csv file: %s", outputfile)
-        df_PlateMapping_rbdict_ri.to_csv(outputfile, index=False)
+        logging.info("Writing PlateMappingReads as csv file: %s", basename)
+        df_PlateMapping_rbdict_ri.to_csv(basename, index=False)
 
     except Exception as e:
-        logging.error("Keio terminated with errors. See the log file for details.")
+        logging.error("GuideMaker terminated with errors. See the log file for details.")
         logging.error(e)
         raise SystemExit(1)
     finally:
