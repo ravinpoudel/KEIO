@@ -42,7 +42,7 @@ def myparser():
     parser.add_argument('--upstreamFasta', '-uf', type=str, required=True, help='A upstreamFasta file')
     parser.add_argument('--downstreamrcFasta', '-drcf', type=str, required=True, help='A downstreamFasta file')
     parser.add_argument('--threads', help='The number of cpu threads to use', type=int, default=2)
-    parser.add_argument('--log', help="Log file", default="keio.log")
+    #parser.add_argument('--log', help="Log file", default="keio.log")
     parser.add_argument('--tempdir', help='The temp file directory', default=None)
     parser.add_argument('--keeptemp' ,help="Should intermediate files be kept?", action='store_true')
     return parser
@@ -83,7 +83,11 @@ def main(args=None):
     parser = myparser()
     if not args:
         args = parser.parse_args()
-    _logger_setup(args.log)
+
+    basename = os.path.basename(str(args.fastq)) 
+    logfilename = basename.split(".")[0] + ".log"
+    _logger_setup(logfilename)
+
     try:
 
         if args.tempdir:
