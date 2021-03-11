@@ -58,7 +58,10 @@ optional arguments:
 
 
 ```{bash}
-keio -f test/test_data/sample.fq.gz -uf test/test_data/upstream.fasta -drcf test/test_data/downstream_rc.fasta --threads 8
+keio -f test/test_data/sample.fq.gz \
+     -uf test/test_data/upstream.fasta \
+     -drcf test/test_data/downstream_rc.fasta \
+     --threads 8
 
 ```
 
