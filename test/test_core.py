@@ -30,11 +30,7 @@ import keio
 
 #######
 
-tempdir='/var/folders/ct/2nl65wtn3978tk0rq17mg2fw0000gn/T/keio_vpjbfm4f'
-mapping_fasta = "test/test_data/upstream.fasta"
-reads_fasta ='/var/folders/ct/2nl65wtn3978tk0rq17mg2fw0000gn/T/keio_vpjbfm4f/forward.fasta'
-cluster_id=0.95
-minseq_length=8
-threads = 2
 
-keio.run_vsearch(mapping_fasta, reads_fasta, tempdir=tempdir)
+def test_run_vsearch():
+	keio.run_vsearch(mapping_fasta ="test/test_data/upstream.fasta", tempdir = "test/test_data/")
+	
