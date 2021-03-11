@@ -58,13 +58,8 @@ optional arguments:
 ## Examples
 
 
-Use case: Retrieving target sequence for a given PAM motif in the forward and reverse strands, where length of guide sequence is 20 base pair.
-12 base pair close to PAM motif is conserved ,i.e. unique and the full sequence has a hamming distance of more than 2.
-Here the number of used threads is 2
-Return a table of pam sites and associated data, at in current folder.
-
-```
-		keio -f test/test_data/sample.fq.gz -uf test/test_data/upstream.fasta -drcf test/test_data/downstream_rc.fasta --threads 8
+```{bash}
+keio -f test/test_data/sample.fq.gz -uf test/test_data/upstream.fasta -drcf test/test_data/downstream_rc.fasta --threads 8
 
 ```
 
