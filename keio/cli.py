@@ -29,11 +29,6 @@ from Bio.SeqRecord import SeqRecord
 import keio
 
 
-##subprocess 
-
-# reformat.sh in=reads.fastq out=reads.fasta
-
-############
 
 
 def myparser():
@@ -57,14 +52,17 @@ def _logger_setup(logfile):
 
     """
     try:
-        logging.basicConfig(level=logging.DEBUG,
+        logging.basicConfig(
+                            level=logging.DEBUG,
                             format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                             datefmt='%m-%d %H:%M',
                             filename=logfile,
                             filemode='w')
         # define a Handler which writes INFO messages or higher to the sys.stderr
-        console = logging.StreamHandler()
-        console.setLevel(logging.INFO)
+        #console = logging.StreamHandler()
+        #console.setLevel(logging.INFO)
+        console = logging.StreamHandler(sys.stdout)
+        console.setLevel(logging.DEBUG)
         # set a format which is simpler for console use
         formatter = logging.Formatter('%(asctime)s: %(levelname)-8s %(message)s')
         # tell the handler to use this format
@@ -74,6 +72,7 @@ def _logger_setup(logfile):
     except Exception as e:
         print("An error occurred setting up logging")
         raise e
+
         
 def main(args=None):
     """Run The complete Keio workflow.
