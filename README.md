@@ -1,4 +1,3 @@
-#KEIO
 ## KEIO: A python software to process illumina reads for keio-collection type project.
 
 
