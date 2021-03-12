@@ -75,6 +75,12 @@ keio -f test/test_data/sample.fq.gz \
 
 ```
 
+### Visualization [RShiny APP]
+https://ravinpoudel.shinyapps.io/keioplatemapper/
+
+
+
+
 ## API documentation
 
 [Available Here](https://ravinpoudel.github.io/KEIO/)
