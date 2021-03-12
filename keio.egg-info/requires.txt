@@ -1,4 +1,0 @@
-biopython>=1.70
-pybedtools>=0.8.0
-nmslib>=2.0.4
-pandas>=1.0.0

@@ -20,3 +20,4 @@ testing.py
 *.log
 *.pyc
 /*.pyc
+keio.egg-info/

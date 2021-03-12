@@ -14,7 +14,7 @@ setup(
                  'Programming Language :: Python :: 3.7',
                  'Programming Language :: Python :: 3.8',
                  'Development Status :: 3 - Alpha'],
-    keywords='KIEIO,
+    keywords='KEIO',
     url='https://ravinpoudel.github.io',
     test_suite='pytest',
     author='Ravin Poudel',
