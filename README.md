@@ -1,5 +1,13 @@
 ## KEIO: A python software to process illumina reads for keio-collection type project.
 
+The Keio collection in Escherichia coli K-12 represents a collection of single-gene deleted mutants. This collection was created manually one by one by replacing the predicted ORF with a kanamycin cassette to inactivate chromosomal genes. Then primers were designed to create in-frame deletions upon excision of the resistance cassette. Of 4288 genes targeted, 3985 mutants were obtained. Majority of these mutants represents mutation of non-essential genes. 
+
+Primarily, the Keio collection provides a molecular tool/resource to understand the functional and physiological aspects of gene at the system levels. Although, creating such molecular collection / tools takes lot of resources and time. Thus, here we explored TnSeq methods to create a single gene mutant type collection at high-throughput scale. Once the Randomly Barcode Transposons are created, the constructs are randomly inserted into bacterial genome to create mutated clone. Each clone theoretically should represent a single gene mutation.
+
+Our methods involves mapping the location of random barcode sequence (about 20 base pair in lengths) as well as inline barcodes. Prior mapping position are then mapped to the genome coordinates to identity targeted features, whereas in-line barcodes mapping allows to map the clone to specific plates ( we use 384 wells plate).
+
+
+
 
 ## Authors
 
