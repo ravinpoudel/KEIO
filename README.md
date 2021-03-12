@@ -79,12 +79,8 @@ keio -f test/test_data/sample.fq.gz \
 https://ravinpoudel.shinyapps.io/keioplatemapper/
 
 
+<iframe width="420" height="315" src="http://www.youtube.com/embed/QH2-TGUlwu4" frameborder="0" allowfullscreen></iframe>
 
-<!-- blank line -->
-<figure class="video_container">
-  <iframe src="https://www.youtube.com/embed/enMumwvLAug" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
-<!-- blank line -->
 
 
 ## API documentation
