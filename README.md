@@ -77,6 +77,10 @@ keio -f test/test_data/sample.fq.gz \
 
 <img title="Title Tag Goes Here" src="https://github.com/ravinpoudel/KEIO/blob/master/pic1.png" alt="Your Alt Tag is Here" width="50" height="50" />
 
+
+[![IMAGE ALT TEXT HERE](https://github.com/ravinpoudel/KEIO/blob/master/Rshiny.png)](https://ravinpoudel.shinyapps.io/keioplatemapper/)
+
+
 ## API documentation
 
 [Available Here](https://ravinpoudel.github.io/KEIO/)
