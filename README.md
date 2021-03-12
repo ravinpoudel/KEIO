@@ -4,7 +4,7 @@ The Keio collection in Escherichia coli K-12 represents a collection of single-g
 
 Primarily, the Keio collection provides a molecular tool/resource to understand the functional and physiological aspects of gene at the system levels. Although, creating such molecular collection / tools takes lot of resources and time. Thus, here we explored TnSeq methods to create a single gene mutant type collection at high-throughput scale. Once the Randomly Barcode Transposons are created, the constructs are randomly inserted into bacterial genome to create mutated clone. Each clone theoretically should represent a single gene mutation. [More @](https://mbio.asm.org/content/6/3/e00306-15)
 
-Our methods involves mapping the location of random barcode sequence (about 20 base pair in lengths) as well as inline barcodes. Prior mapping position are then mapped to the genome coordinates to identity targeted features, whereas in-line barcodes mapping allows to map the clone to specific plates ( we use 384 wells plate).
+Our methods involves mapping the location of random barcode sequence (about 20 base pair in lengths) as well as inline barcodes. Mapping-positions are then mapped to the genome coordinates to identity targeted features, whereas in-line barcodes mapping allows to map the clone to specific plates ( we use 384 wells plate).
 
 
 
