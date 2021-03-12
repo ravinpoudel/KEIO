@@ -79,10 +79,11 @@ keio -f test/test_data/sample.fq.gz \
 https://ravinpoudel.shinyapps.io/keioplatemapper/
 
 
-<iframe src="https://connect.my_domain.com/my_app" width: 100%; height: 500px;">
-                                                                               
-                                                                                                                                                              <iframe src="http://www.youtube.com/embed/4aQwT3n2c1Q" class="is-fullwidth" height="315px"
-    </iframe>
+<iframe
+  src="https://codepen.io/team/codepen/embed/preview/PNaGbb"
+  style="width:100%; height:300px;"
+></iframe>
+                                                                 
 
 
 
