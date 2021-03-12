@@ -75,7 +75,7 @@ keio -f test/test_data/sample.fq.gz \
 
 ```
 
-### Visualization [RShiny APP]
+### Visualization <img src="https://github.com/ravinpoudel/KEIO/blob/master/pic1.png" width="30" height="30" />
 
 
 [![IMAGE ALT TEXT HERE](https://github.com/ravinpoudel/KEIO/blob/master/Rshiny.png)](https://ravinpoudel.shinyapps.io/keioplatemapper/)
