@@ -79,7 +79,7 @@ keio -f test/test_data/sample.fq.gz \
 https://ravinpoudel.shinyapps.io/keioplatemapper/
 
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=NZaZ_z3ZrD0&list=RDNZaZ_z3ZrD0&start_radio=1)
+[![IMAGE ALT TEXT HERE](https://github.com/ravinpoudel/KEIO/blob/master/Rshiny.png)](https://www.youtube.com/watch?v=NZaZ_z3ZrD0&list=RDNZaZ_z3ZrD0&start_radio=1)
 
 
 
