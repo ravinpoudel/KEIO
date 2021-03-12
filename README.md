@@ -37,6 +37,8 @@ KEIO can be installed from:
 
 Following are the required softwares/programs.
 
+
+* ``VSEARCH``
 * ``pybedtools``
 * ``NMSLib``
 * ``Biopython``
