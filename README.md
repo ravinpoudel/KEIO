@@ -77,7 +77,9 @@ keio -f test/test_data/sample.fq.gz \
 
 <img src="https://github.com/ravinpoudel/KEIO/blob/master/pic1.png" width="50" height="50" />
 
-[![IMAGE ALT TEXT HERE](https://github.com/ravinpoudel/KEIO/blob/master/RshinyLogo.png)](https://ravinpoudel.shinyapps.io/keioplatemapper/)
+
+[![IMAGE ALT TEXT HERE](https://github.com/ravinpoudel/KEIO/blob/master/rslogo.png)](https://ravinpoudel.shinyapps.io/keioplatemapper/)
+
 
 
 [![IMAGE ALT TEXT HERE](https://github.com/ravinpoudel/KEIO/blob/master/Rshiny.png)](https://ravinpoudel.shinyapps.io/keioplatemapper/)
