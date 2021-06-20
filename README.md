@@ -86,9 +86,6 @@ keio -f test/test_data/sample.fq.gz \
 
 
 
-
-
-
 ## API documentation
 
 [Available Here](https://ravinpoudel.github.io/KEIO/)
