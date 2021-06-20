@@ -81,7 +81,7 @@ keio -f test/test_data/sample.fq.gz \
 [![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/ravinpoudel/KEIO/master/keio/data/applogo.png)](https://ravinpoudel.shinyapps.io/keioplatemapper/)
 
 
-[![IMAGE ALT TEXT HERE](https://github.com/ravinpoudel/KEIO/blob/master/keio/data/KeioMapper.png)](https://ravinpoudel.shinyapps.io/keioplatemapper/)
+[![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/ravinpoudel/KEIO/master/keio/data/KeioMapper.png)](https://ravinpoudel.shinyapps.io/keioplatemapper/)
 
 
 
