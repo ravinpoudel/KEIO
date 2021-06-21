@@ -6,7 +6,8 @@ Primarily, Keio collection provides a molecular tool/resource to understand func
 
 Our methods involves mapping the location of random barcode sequence (about 20 base pair in lengths) as well as inline barcodes. Mapping-positions are then mapped to the genome coordinates to identity targeted features, whereas in-line barcodes mapping allows to map the clone to specific plates ( we use 384 wells plate).
 
-
+![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/ravinpoudel/KEIO/master/keio/data/instruction.png)
+![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/ravinpoudel/KEIO/master/keio/data/platemapping.png)
 
 
 ## Authors
