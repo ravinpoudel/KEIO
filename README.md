@@ -26,11 +26,17 @@ Barcode Insertion Mapping             |  Plate Mapping
 
 KEIO can be installed from:
 
-1. The Github repository: https://github.com/ravinpoudel/KEIO.git
+```bash
+# Create a conda environment and install and pybedtools
+conda create -n keio python=3.7 pybedtools=0.8.2 vsearch 2.18.0 nmslib 2.0.16 
+conda activate keio
 
-```{bash}
+git clone https://github.com/ravinpoudel/KEIO.git
+cd keio
+pip install .
 
-    git clone https://github.com/ravinpoudel/KEIO.git
+# check if the installation works
+keio -h
     
 ```
 
