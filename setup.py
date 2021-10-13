@@ -6,7 +6,7 @@ from setuptools import setup
 
 requirements = [
     # package requirements go here
-    'biopython==1.76',
+    'biopython==1.70',
     'numpy >=1.11',
     'pybedtools>=0.8.2',
     'nmslib>=2.0.6',
@@ -30,7 +30,7 @@ setup(
     url='https://ravinpoudel.github.io',
     test_suite='pytest',
     author='Ravin Poudel',
-    author_email='rp3448@ufl.edy',
+    author_email='rp3448@ufl.edu',
     install_requires=requirements,
     python_requires='>=3.6',
     tests_require=['pytest'],
