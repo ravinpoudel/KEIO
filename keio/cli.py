@@ -99,7 +99,7 @@ def main(args=None):
             
         logging.info("Temp directory is: %s" % (tempdir))
         logging.info("Writing fasta file from genbank file(s)")
-        fastapath = keio.fq2fa(args.fastq, tempdir=tempdir)
+        fastapath = keio.get_fastas(args.fastq, tempdir=tempdir)
         print(fastapath)
 
         # upstream
