@@ -13,7 +13,7 @@ requirements = [
     'pandas>=1.0.0',
     'pytest>=4.6',
     'textdistance>=4.2.1',
-    'vsearch>= 2.17.0',
+    'vsearch == 2.18.0',
     'pytest-cov'
 ]
 
