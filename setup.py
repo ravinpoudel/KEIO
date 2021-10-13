@@ -12,7 +12,7 @@ requirements = [
     'nmslib>=2.0.6',
     'pandas>=1.0.0',
     'pytest>=4.6',
-    'textdistance 4.2.1',
+    'textdistance>=4.2.1',
     'pytest-cov'
 ]
 
