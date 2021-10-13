@@ -32,7 +32,7 @@ conda create -n keio python=3.7 pybedtools=0.8.2
 conda activate keio
 
 git clone https://github.com/ravinpoudel/KEIO.git
-cd keio
+cd KEIO
 pip install .
 
 # check if the installation works
