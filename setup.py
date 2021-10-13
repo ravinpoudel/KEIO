@@ -4,6 +4,17 @@
 
 from setuptools import setup
 
+requirements = [
+    # package requirements go here
+    'biopython==1.76',
+    'numpy >=1.11',
+    'pybedtools>=0.8.2',
+    'nmslib>=2.0.6',
+    'pandas>=1.0.0',
+    'pytest>=4.6',
+    'pytest-cov'
+]
+
 setup(
     name='KEIO',
     packages=['KEIO'],
@@ -19,7 +30,7 @@ setup(
     test_suite='pytest',
     author='Ravin Poudel',
     author_email='rp3448@ufl.edy',
-    install_requires=['biopython>=1.70', 'pybedtools>=0.8.0', 'nmslib>=2.0.4', 'pandas>=1.0.0'],
+    install_requires=requirements,
     python_requires='>=3.6',
     tests_require=['pytest'],
     include_package_data=True,
