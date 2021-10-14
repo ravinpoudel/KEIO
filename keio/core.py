@@ -32,14 +32,14 @@ logger = logging.getLogger('keio.core')
 def is_gzip(filename: str):
     try:
         with open(filename, "rb") as f:
-            logging.info("check if %s is gzipped" % filename)
+            #logging.info("check if %s is gzipped" % filename)
             return f.read(2) == b'\x1f\x8b'
     except IOError as e:
-        logging.error("Could not open the file %s to determine if it was gzipped" % filename)
+        #logging.error("Could not open the file %s to determine if it was gzipped" % filename)
         raise e
 
 
-def fq2fa(filelist, tempdir=None):
+def get_fastas(filelist, tempdir=None):
     """Saves a Fasta and from 1 or more fastq files (may be gzipped)
 
     Args:
@@ -62,35 +62,10 @@ def fq2fa(filelist, tempdir=None):
                         SeqIO.write(records, f1, "fasta")
         return fastpath
     except Exception as e:
-        print("An error occurred in input fastq file %s" % file)
-        raise e
-        
- def get_fastas(filelist, tempdir=None):
-    """
-    Saves a Fasta and from 1 or more Genbank files (may be gzipped)
-    Args:
-        filelist (str): Genbank file to process
-    Returns:
-        None
-    """
-    try:
-        fastpath = os.path.join(tempdir, "forward.fasta")
-        with open(fastpath, "w") as f1:
-            for file in filelist:
-                if is_gzip(file):
-                    with gzip.open(file, 'rt') as f:
-                        records = SeqIO.parse(f, "fastq")
-                        SeqIO.write(records, f1, "fasta")
-                else:
-                    with open(file, 'r') as f:
-                        records = (SeqIO.parse(f, "fastq"))
-                        SeqIO.write(records, f1, "fasta")
-        return fastpath
-    except Exception as e:
         print("An error occurred in input genbank file %s" % file)
         raise e
-
-                    
+        
+          
 def run_vsearch(mapping_fasta, reads_fasta, cluster_id=0.75, minseq_length=5, tempdir=None, threads=2):
     """ Returns mapping information
     Args:

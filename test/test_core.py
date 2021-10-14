@@ -30,7 +30,36 @@ import keio
 
 #######
 
+tempdir = "test/test_data/"
+fq="test/test_data/sample.fq.gz"
+filelist = [fq]
+
+
+def test_is_zip(fq):
+	keio.is_gzip(fq)
+
+def test_fq2fa():
+	keio.fq2fa(filelist)
 
 def test_run_vsearch():
-	keio.run_vsearch(mapping_fasta ="test/test_data/upstream.fasta", tempdir = "test/test_data/")
-	
+	keio.run_vsearch("test/test_data/upstream.fasta", "test/test_data/forward.fasta", cluster_id=0.75, minseq_length=5, tempdir=tempdir, threads=2)
+
+# is_gzip(fq)
+
+# fq2fa(filelist, tempdir)
+
+# fastpath = os.path.join(tempdir, "forward.fasta")
+
+# with open(fastpath, "w") as f1:
+# 	for file in filelist:
+# 		if is_gzip(file):
+# 			with gzip.open(file, 'rt') as f:
+# 				records = SeqIO.parse(f, "fastq")
+# 				SeqIO.write(records, f1, "fasta")
+# 		else:
+# 			with open(file, 'r') as f:
+# 				records = SeqIO.parse(f, "fastq")
+# 				SeqIO.write(records, f1, "fasta")
+# test_run_vsearch()
+# for file in filelist:
+# 	print(file)
