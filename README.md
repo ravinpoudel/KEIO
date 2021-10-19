@@ -92,7 +92,54 @@ keio -f test/test_data/sample.fq.gz \
 [![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/ravinpoudel/KEIO/master/keio/data/KeioMapper.png)](https://ravinpoudel.shinyapps.io/keioplatemapper/)
 
 
+## Once you have output from keio, we will be using R script to process the output. 
+## Inputs needed for Rscript
+**output from Random Barcode TnSeq method, which includes the 20-bp barcode and insertion location in the chromosome.**
+Eg. `DSS3BlPl.txt`
+- Read more at `Inplate_tag_mapping.html`
 
+```bash
+mkdir results
+Rscript script/keio.R sample.csv 
+
+```
+Above script run one output at a time. If you have multiple fasta file to map, we can write a bash script/loop to run keio. Running keio can be done locally, as it should not take long time. Running Rscript might take longtime, depending on the totoal number of matches. Running as a SLURM array job will be helpful. Following is the slurm script.
+
+`script/run.sh`
+
+```bash
+#!/bin/bash
+#SBATCH --account="gbru_fy21_tomato_ralstonia"
+#SBATCH --job-name=keio
+#SBATCH --out=keio_%A_%a.log
+#SBATCH --time=14-00:00:00
+#SBATCH --array=1-58
+#SBATCH -p atlas
+#SBATCH -N 1
+#SBATCH -n 48
+#SBATCH --mem 250G
+
+
+date;hostname;pwd
+
+# load the required programs
+# hpg1-compute
+#module load conda
+#source activate keio
+
+
+RUN=${SLURM_ARRAY_TASK_ID}
+echo "My Slurm RUN_ID: '${RUN}'"
+echo "My TMPDIR IS: " $TMPDIR
+
+# here a folder called keio_output contains all the csv's after running keio(python script)
+infile=$(ls keio_output/*.csv | sed -n ${RUN}p)
+echo "$infile"
+
+time Rscript keio.R $infile
+
+
+```
 
 ## API documentation
 
