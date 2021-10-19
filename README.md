@@ -92,9 +92,12 @@ keio -f test/test_data/sample.fq.gz \
 [![IMAGE ALT TEXT HERE](https://raw.githubusercontent.com/ravinpoudel/KEIO/master/keio/data/KeioMapper.png)](https://ravinpoudel.shinyapps.io/keioplatemapper/)
 
 
-## Once you have output from keio, we will be using R script to process the output. 
-## Inputs needed for Rscript
-**output from Random Barcode TnSeq method, which includes the 20-bp barcode and insertion location in the chromosome.**
+Once you have output from keio, we will be using R script to process the output. 
+
+***Inputs needed for Rscript***
+
+- **output from Random Barcode TnSeq method, which includes the 20-bp barcode and insertion location in the chromosome.** This output was generated following https://bitbucket.org/berkeleylab/feba/src/master/
+
 Eg. `DSS3BlPl.txt`
 - Read more at `Inplate_tag_mapping.html`
 
