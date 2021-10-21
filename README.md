@@ -143,7 +143,8 @@ time Rscript keio.R $infile
 
 
 ```
-Above R script saves the result within a folder called "results". Now we have processed each fastq files and retrived the summarized information, we can copy the whole folder "results" to the local machince (laptop) and process in R using `process.R` script. This script will read in all the output from "results" folder and additionally also need  files:
+Above R script saves the result within a folder called "results". Now we have processed each fastq files and retrived the summarized information, we can copy the whole folder "results" to the local machince (laptop) and process in R using `script/process.R` script. This script will read in all the output from "results" folder and additionally also need  files:
+
 - DSS3_gff.csv
 - **output from Random Barcode TnSeq method, which includes the 20-bp barcode and insertion location in the chromosome.** This output was generated following https://bitbucket.org/berkeleylab/feba/src/master/
 
