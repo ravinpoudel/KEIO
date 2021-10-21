@@ -152,7 +152,11 @@ Eg. `DSS3BlPl.txt`
 
 **NOTE:** These files are very specific to DSS3 genome, and the script has to be optimized depending on the genomes being analyzed.
 
+```R
 
+script/process.R
+
+```
 
 
 ## API documentation
